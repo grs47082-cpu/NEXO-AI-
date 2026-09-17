@@ -1,42 +1,37 @@
-# NEXO-AI-Projeto NEXO AI — Primeira tarefa
+# NEXO AI
 
-Você é um engenheiro de software sênior responsável por desenvolver a primeira versão do NEXO AI, um assistente pessoal de inteligência artificial voltado à produtividade e automação de tarefas.
+Painel pessoal de produtividade e organização, com interface responsiva e persistência local no navegador.
 
-Objetivo
+## MVP
 
-Criar uma aplicação web funcional, responsiva e visualmente sofisticada, que sirva como painel central de organização pessoal.
+- Dashboard com visão geral das atividades.
+- Criar, editar, concluir e excluir tarefas.
+- Categorias: Pessoal, Estudos e Trabalho.
+- Prioridades: Baixa, Média e Alta.
+- Prazo opcional por tarefa.
+- Filtros por estado e prioridade.
+- Persistência com `localStorage`.
+- Tema claro/escuro persistido.
+- Layout responsivo para celular e desktop.
 
-Primeira versão (MVP)
+## Estrutura
 
-Desenvolva uma interface com:
+- `index.html` — estrutura da aplicação e componentes de interface.
+- `styles.css` — identidade visual, estados, modal e responsividade.
+- `app.js` — estado, CRUD, filtros, persistência e interações.
 
-1. Dashboard: visão geral das tarefas e atividades.
-2. Gerenciador de tarefas: criar, editar, concluir e excluir tarefas.
-3. Organização por categorias: pessoal, estudos e trabalho.
-4. Prioridades: baixa, média e alta.
-5. Persistência local: manter os dados salvos no navegador.
-6. Interface responsiva: funcionar bem em celulares, especialmente iPhone.
+## Como executar
 
-Diretrizes técnicas
+O projeto é um frontend estático. Abra `index.html` no navegador ou use um servidor HTTP estático durante o desenvolvimento.
 
-* Antes de implementar, inspecione o repositório e apresente um plano breve.
-* Escolha uma stack simples e adequada para um MVP.
-* Utilize TypeScript quando apropriado.
-* Não adicione serviços pagos ou APIs externas sem autorização.
-* Não exponha chaves, tokens ou credenciais.
-* Implemente componentes reutilizáveis e código organizado.
-* Inclua instruções claras para executar e testar o projeto.
+Exemplo com Node.js:
 
-Design
+```bash
+npx serve .
+```
 
-Crie uma interface premium, minimalista e moderna, com hierarquia visual clara, tipografia elegante, navegação intuitiva e excelente experiência em telas pequenas.
+Depois, abra o endereço indicado pelo servidor.
 
-Critérios de conclusão
+## Dados
 
-* A aplicação deve iniciar sem erros.
-* As tarefas devem permitir operações completas de criação, edição, conclusão e exclusão.
-* Os dados devem permanecer após atualizar a página.
-* Os principais fluxos devem ser testados.
-* Apresente um resumo dos arquivos criados e das decisões técnicas.
-
-Não implemente funcionalidades adicionais fora do escopo sem explicar sua necessidade e solicitar autorização.
+As tarefas ficam somente no navegador do usuário usando `localStorage`. O MVP não utiliza banco de dados, API externa, chave ou serviço pago.
