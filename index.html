@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0d12" />
+  <meta name="description" content="NEXO AI — seu centro pessoal de produtividade e organização." />
+  <title>NEXO AI — Seu espaço, em um só lugar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">N</div>
+        <div><strong>NEXO</strong><span>AI</span></div>
+      </div>
+      <nav class="nav" aria-label="Navegação principal">
+        <button class="nav-item active" data-view="dashboard"><span>⌂</span>Visão geral</button>
+        <button class="nav-item" data-view="tasks"><span>✓</span>Tarefas</button>
+        <button class="nav-item" data-view="categories"><span>◈</span>Categorias</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="mini-card"><span class="pulse"></span><div><small>Sistema</small><strong>Operacional</strong></div></div>
+        <button class="profile"><span class="avatar">TR</span><span><b>Thiago</b><small>Workspace pessoal</small></span><span class="chevron">›</span></button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-button mobile-only" id="menuBtn" aria-label="Abrir menu">☰</button>
+        <div class="breadcrumb"><span>NEXO</span><i>/</i><b id="pageTitle">Visão geral</b></div>
+        <div class="top-actions">
+          <button class="icon-button" id="themeBtn" aria-label="Alternar tema">◐</button>
+          <button class="new-task" id="openModal"><span>＋</span> Nova tarefa</button>
+        </div>
+      </header>
+
+      <section class="content" id="view-dashboard">
+        <div class="hero-row">
+          <div>
+            <p class="eyebrow">BEM-VINDO DE VOLTA</p>
+            <h1>Seu dia, <em>em foco.</em></h1>
+            <p class="subhead">Organize o que importa. O NEXO cuida do resto.</p>
+          </div>
+          <div class="date-chip" id="today"></div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-icon">✓</div><div><span>Concluídas</span><strong id="doneCount">0</strong></div><small>tarefas finalizadas</small></article>
+          <article class="stat-card"><div class="stat-icon">◷</div><div><span>Em andamento</span><strong id="activeCount">0</strong></div><small>tarefas abertas</small></article>
+          <article class="stat-card"><div class="stat-icon">!</div><div><span>Alta prioridade</span><strong id="highCount">0</strong></div><small>merecem atenção</small></article>
+          <article class="stat-card accent"><div class="stat-icon">✦</div><div><span>Progresso</span><strong id="progressCount">0%</strong></div><div class="progress"><i id="progressBar"></i></div></article>
+        </div>
+
+        <div class="section-heading"><div><p class="eyebrow">AGENDA</p><h2>O que precisa acontecer</h2></div><button class="text-button" data-view="tasks">Ver todas <span>→</span></button></div>
+        <div class="task-list" id="dashboardTasks"></div>
+      </section>
+
+      <section class="content hidden" id="view-tasks">
+        <div class="page-heading"><div><p class="eyebrow">GERENCIADOR</p><h1>Tarefas</h1><p class="subhead">Tudo o que está no seu radar.</p></div><button class="new-task" id="openModal2">＋ Nova tarefa</button></div>
+        <div class="filters"><button class="filter active" data-filter="all">Todas</button><button class="filter" data-filter="active">Abertas</button><button class="filter" data-filter="done">Concluídas</button><button class="filter" data-filter="high">Alta prioridade</button></div>
+        <div class="task-list full" id="allTasks"></div>
+      </section>
+
+      <section class="content hidden" id="view-categories">
+        <div class="page-heading"><div><p class="eyebrow">ORGANIZAÇÃO</p><h1>Categorias</h1><p class="subhead">Uma visão limpa por contexto.</p></div></div>
+        <div class="category-grid">
+          <button class="category-card" data-category="pessoal"><span class="category-symbol">○</span><strong>Pessoal</strong><small id="catPessoal">0 tarefas</small></button>
+          <button class="category-card" data-category="estudos"><span class="category-symbol">◇</span><strong>Estudos</strong><small id="catEstudos">0 tarefas</small></button>
+          <button class="category-card" data-category="trabalho"><span class="category-symbol">□</span><strong>Trabalho</strong><small id="catTrabalho">0 tarefas</small></button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="modal">
+    <form class="modal" id="taskForm">
+      <button type="button" class="close" id="closeModal" aria-label="Fechar">×</button>
+      <p class="eyebrow">NOVA TAREFA</p><h2>O que precisa ser feito?</h2>
+      <label>Título<input id="titleInput" required maxlength="120" placeholder="Ex.: Revisar conteúdo da APG" /></label>
+      <div class="form-row"><label>Categoria<select id="categoryInput"><option value="pessoal">Pessoal</option><option value="estudos">Estudos</option><option value="trabalho">Trabalho</option></select></label><label>Prioridade<select id="priorityInput"><option value="baixa">Baixa</option><option value="media" selected>Média</option><option value="alta">Alta</option></select></label></div>
+      <label>Prazo<input id="dateInput" type="date" /></label>
+      <button class="submit" type="submit">Adicionar ao NEXO <span>→</span></button>
+    </form>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
